@@ -27,10 +27,24 @@ function Bounds({ length = 1 }: { length: number }) {
         scale={[0.3, 1.5, 4]}
         castShadow
       />
+      {/* Ceil Collider */}
+      <CuboidCollider
+        args={[2, 0.1, length * 2]}
+        position={[0, 1.65, -(length * 2) + 2]}
+        restitution={0.2}
+        friction={1}
+      />
       {/* Floor Collider */}
       <CuboidCollider
         args={[2, 0.1, length * 2]}
         position={[0, -0.1, -(length * 2) + 2]}
+        restitution={0.2}
+        friction={1}
+      />
+      {/* Back Wall Collider */}
+      <CuboidCollider
+        args={[2, 0.75, 0.15]}
+        position={[0, 0.75, 2.15]}
         restitution={0.2}
         friction={1}
       />
