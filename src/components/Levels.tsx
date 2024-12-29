@@ -1,8 +1,5 @@
 import { useMemo } from 'react';
-import { Grid } from '@react-three/drei';
 import BlockStart from './Blocks/BlockStart';
-import { Physics } from '@react-three/rapier';
-
 import BlockTrap from './Blocks/BlockTrap';
 import BlockEnd from './Blocks/BlockEnd';
 import { blockTypes } from '../data/constants';
@@ -30,18 +27,15 @@ function Levels({ count }: PropTypes) {
 
   return (
     <>
-      <Grid args={[20, 20, 20]} position-y={-0.01} />
-      <Physics debug>
-        <BlockStart position={[0, 0, 0]} />
+      <BlockStart position={[0, 0, 0]} />
 
-        {blocks.map((Component) => {
-          return Component;
-        })}
+      {blocks.map((Component) => {
+        return Component;
+      })}
 
-        <BlockEnd position={[0, 0, -(count + 1) * 4]} />
+      <BlockEnd position={[0, 0, -(count + 1) * 4]} />
 
-        <Bounds length={count + 2} />
-      </Physics>
+      <Bounds length={count + 2} />
     </>
   );
 }
