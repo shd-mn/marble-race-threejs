@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import { boxGeometry } from '../../data/geometries';
 import { obstacleMaterial } from '../../data/materials';
 import { randomDirection } from '../../utils';
+
 function TrapSpinner() {
   const [speed] = useState(randomDirection);
 

@@ -1,6 +1,7 @@
 import { OrbitControls } from '@react-three/drei';
 import Lights from './Lights';
 import Levels from './Levels';
+import { blockCount } from '../data/constants';
 
 export default function Experience() {
   return (
@@ -9,7 +10,7 @@ export default function Experience() {
 
       <Lights />
 
-      <Levels />
+      <Levels count={blockCount} />
     </>
   );
 }
