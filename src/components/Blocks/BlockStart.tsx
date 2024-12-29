@@ -1,6 +1,6 @@
 import { RigidBody } from '@react-three/rapier';
-import { boxGeometry } from '../Data/geometries';
-import { floor1Material } from '../Data/materials';
+import { boxGeometry } from '../../data/geometries';
+import { floor1Material } from '../../data/materials';
 
 type PropTypes = {
   position: [number, number, number];

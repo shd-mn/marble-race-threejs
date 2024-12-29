@@ -2,9 +2,9 @@ import { useFrame } from '@react-three/fiber';
 import { RigidBody } from '@react-three/rapier';
 import { ElementRef, useRef, useState } from 'react';
 import * as THREE from 'three';
-import { boxGeometry } from '../Data/geometries';
-import { obstacleMaterial } from '../Data/materials';
-import { randomDirection } from '../utils';
+import { boxGeometry } from '../../data/geometries';
+import { obstacleMaterial } from '../../data/materials';
+import { randomDirection } from '../../utils';
 function TrapSpinner() {
   const [speed] = useState(randomDirection);
 
