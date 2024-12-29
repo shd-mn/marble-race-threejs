@@ -4,20 +4,22 @@ import { ElementRef, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { boxGeometry } from '../../data/geometries';
 import { obstacleMaterial } from '../../data/materials';
-import { randomDirection } from '../../utils';
-function TrapSpinner() {
-  const [speed] = useState(randomDirection);
 
+type PropTypes = {
+  position: [number, number, number];
+};
+
+function TrapLimbo({ position }: PropTypes) {
+  const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
   const trapRef = useRef<ElementRef<typeof RigidBody> | null>(null);
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
+    const y = Math.sin(time + timeOffset) + 1.15;
 
     if (trapRef.current) {
-      const euler = new THREE.Euler(0, time * speed, 0);
-      const rotation = new THREE.Quaternion();
-      rotation.setFromEuler(euler);
-      trapRef.current.setNextKinematicRotation(rotation);
+      const euler = new THREE.Euler(position[0], position[1] + y, position[2]);
+      trapRef.current.setNextKinematicTranslation(euler);
     }
   });
 
@@ -39,4 +41,4 @@ function TrapSpinner() {
     </RigidBody>
   );
 }
-export default TrapSpinner;
+export default TrapLimbo;
