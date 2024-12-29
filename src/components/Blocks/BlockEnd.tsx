@@ -1,4 +1,3 @@
-import { RigidBody } from '@react-three/rapier';
 import { boxGeometry } from '../../data/geometries';
 import { floor1Material } from '../../data/materials';
 import Star from '../Models/Star';
@@ -12,15 +11,13 @@ function BlockEnd({ position = [0, 0, 0] }: PropTypes) {
     <group position={position}>
       <Star position={[0, 1, 0]} />
 
-      <RigidBody type="fixed">
-        <mesh
-          geometry={boxGeometry}
-          material={floor1Material}
-          position={[0, 0, 0]}
-          scale={[4, 0.2, 4]}
-          receiveShadow
-        />
-      </RigidBody>
+      <mesh
+        geometry={boxGeometry}
+        material={floor1Material}
+        position={[0, 0, 0]}
+        scale={[4, 0.2, 4]}
+        receiveShadow
+      />
     </group>
   );
 }
