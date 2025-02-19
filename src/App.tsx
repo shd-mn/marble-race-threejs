@@ -2,6 +2,7 @@ import { Canvas } from '@react-three/fiber';
 import Experience from './components/Experience';
 import { cameraSetting, keyboardMap } from './data/constants';
 import { KeyboardControls } from '@react-three/drei';
+import Interface from './components/Interface';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Canvas shadows camera={cameraSetting}>
         <Experience />
       </Canvas>
+      <Interface />
     </KeyboardControls>
   );
 }
